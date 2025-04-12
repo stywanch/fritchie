@@ -1,0 +1,247 @@
+/* style.css */
+
+/* Basic Reset & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    color: #5c2a30; /* Darker pink for text */
+    overflow: hidden; /* Prevent scrollbars caused by dodging button / hearts */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of hearts */
+}
+
+/* Page Container - Default state for all pages */
+.page {
+    display: flex; /* Show the content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white card */
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(131, 58, 110, 0.37); /* Soft pink shadow */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 80%;
+    width: 500px; /* Added a fixed width for consistency */
+    min-height: 300px; /* Ensure minimum height */
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Headings and Text */
+h1, h2 {
+    font-family: 'Pacifico', cursive; /* Romantic Font */
+    color: #d6336c; /* Hot Pink */
+    margin-bottom: 20px;
+}
+h1 { font-size: 2.8em; }
+h2 { font-size: 2.2em; }
+p {
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #864d57; /* Muted pink */
+}
+
+/* Buttons */
+.button-container {
+    display: flex; /* Use Flexbox for initial layout */
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px;
+    /* position: relative; /* REMOVE THIS - Only add dynamically with JS */
+    width: 100%; /* Ensure container spans width */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Align buttons vertically */
+    min-height: 70px; /* INCREASE height to give No button room to move */
+    padding: 10px 0; /* Add some padding top/bottom */
+    position: relative; /* ADD BACK: Needed for absolute positioning context of No button */
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px; /* Rounded buttons */
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
+    z-index: 2;
+    flex-shrink: 0; /* Prevent buttons from shrinking if container is narrow */
+}
+
+#yesBtn {
+    background-color: #f06595; /* Pink */
+    color: white;
+    /* position: static; /* Default, stays in flex flow */
+}
+#yesBtn:hover {
+    background-color: #d6336c; /* Darker Pink */
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(214, 51, 108, 0.5);
+}
+
+#noBtn {
+    background-color: #f8f9fa; /* Light Gray */
+    color: #864d57;
+    position: absolute; /* Crucial for dodging */
+    transition: all 0.1s linear; /* Smooth but fast movement */
+}
+#noBtn:hover {
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Page 2 - Birthday Input */
+#birthdayInput {
+    padding: 10px 15px;
+    border: 2px solid #f06595;
+    border-radius: 10px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#birthdayError {
+    color: #c92a2a; /* Red for error */
+    font-size: 0.9em;
+    height: 1.2em; /* Reserve space */
+    margin-top: 5px;
+}
+#checkBirthdayBtn {
+     background-color: #f06595;
+     color: white;
+     margin-top: 10px;
+}
+ #checkBirthdayBtn:hover {
+     background-color: #d6336c;
+     transform: scale(1.05);
+ }
+
+/* Page 3 - Scheduling */
+.schedule-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+.schedule-form label {
+    font-weight: bold;
+    color: #d6336c;
+    margin-bottom: -5px; /* Reduce space above input */
+}
+.schedule-form input[type="date"],
+.schedule-form input[type="time"] {
+    padding: 10px;
+    border: 2px solid #f06595;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
+}
+.game-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.game-option {
+    padding: 10px;
+    border: 2px solid #f8a5c2; /* Lighter pink border */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px; /* Fixed width for better alignment */
+}
+.game-option img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+.game-option.selected {
+    background-color: #f06595;
+    color: white;
+    border-color: #d6336c;
+    transform: scale(1.05);
+}
+.game-option.selected span {
+     color: white !important; /* Override text color */
+}
+.game-option span {
+    font-size: 0.9em;
+    color: #864d57;
+    font-weight: bold;
+}
+
+#scheduleBtn {
+    background-color: #f06595;
+    color: white;
+    margin-top: 20px;
+}
+#scheduleBtn:hover {
+    background-color: #d6336c;
+    transform: scale(1.05);
+}
+
+/* Page 4 - Summary Card */
+#summaryCard {
+    background-color: rgba(255, 240, 243, 0.9); /* Very light pink */
+    border: 2px dashed #f06595;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(134, 77, 87, 0.2);
+}
+#summaryCard p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #5c2a30;
+}
+ #summaryCard strong {
+     color: #d6336c;
+ }
+#finalInstruction {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #d6336c;
+}
+
+/* Heart Trail */
+.heart {
+    position: fixed; /* Use fixed to position relative to viewport */
+    font-size: 20px; /* Adjust size */
+    color: #ff6b9a; /* Heart color */
+    pointer-events: none; /* Make hearts non-interactive */
+    animation: fadeOut 1s forwards;
+    z-index: 9999; /* Ensure hearts are on top */
+    user-select: none; /* Prevent text selection */
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.5);
+    }
+}

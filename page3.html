@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Change lang to en -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- English Title -->
+    <title>Schedule Hangout - Fritchie Jane</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Page 3 Content -->
+    <div id="page3" class="page">
+        <!-- English Text -->
+        <h2>Let's Hang Out!</h2>
+        <p>Yay! Since it's really you, I'd love to schedule a time to play together virtually. Pick a date, time, and what you'd like to do!</p>
+        <div class="schedule-form">
+            <label for="dateInput">Date:</label>
+            <input type="date" id="dateInput">
+
+            <label for="timeInput">Time:</label>
+            <input type="time" id="timeInput">
+
+            <p style="margin-top: 15px; margin-bottom: 5px; font-weight:bold; color: #d6336c;">Activity:</p>
+            <div class="game-options">
+                 <div class="game-option" data-game="Valorant">
+                     <img src="v.jpg" alt="Valorant Logo">
+                     <span>Valorant</span>
+                 </div>
+                 <div class="game-option" data-game="Among Us">
+                     <img src="au.jpg" alt="Among Us Logo">
+                     <span>Among Us</span>
+                 </div>
+                 <!-- English Option -->
+                 <div class="game-option" data-game="Just Call">
+                      <img src="dc.jpg" alt="Video Call Icon">
+                     <span>Just Call</span>
+                 </div>
+            </div>
+            <input type="hidden" id="gameChoice" value="">
+
+            <!-- English Button Text -->
+            <button id="scheduleBtn" class="btn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
